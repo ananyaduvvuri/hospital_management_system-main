@@ -2,11 +2,13 @@ var mysql = require("mysql");
 var express = require("express");
 var router = express.Router();
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "hospital_management",
+const con = mysql.createConnection({
+  host: 'mysqlnode.mysql.database.azure.com',
+  user: 'adminlogin@mysqlnode',
+  password: 'Ann280902',
+  database: 'hospital_management',
+  port: 3306, // Default MySQL port
+  ssl: true, // Enable SSL for secure connection (Azure MySQL requires SSL)
 });
 
 con.connect(function (err) {
