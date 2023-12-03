@@ -7,7 +7,7 @@ const con = mysql.createConnection({
   user: 'adminlogin@mysqlnode',
   password: 'Ann280902',
   database: 'hospital_management',
-  port: 3306, // Default MySQL port
+  //port: 3306, // Default MySQL port
   ssl: true, // Enable SSL for secure connection (Azure MySQL requires SSL)
 });
 

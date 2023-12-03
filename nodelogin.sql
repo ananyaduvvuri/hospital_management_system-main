@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `appointment`
 --
+create database hospital_management;
+use hospital_management;
 
 CREATE TABLE `appointment` (
   `id` int(10) NOT NULL,
