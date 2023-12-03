@@ -18,11 +18,19 @@ router.get('/', function(req ,res){
 
 var con = mysql.createConnection({
 
-    host : 'localhost',
-    user : 'root',
-    password : '',
-    database : 'hospital_management'
+    host: 'mysqlnode.mysql.database.azure.com',
+    user: 'adminlogin@mysqlnode',
+    password: 'Ann280902',
+    database: ' ',
+    port: 3306, // Default MySQL port
+    ssl: {
+      rejectUnauthorized: true
+    }
 });
+
+
+
+
 
 router.use(session({
 
