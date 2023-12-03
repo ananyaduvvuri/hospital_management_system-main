@@ -45,6 +45,53 @@ router.use(bodyParser.urlencoded({extended : true}));
 router.use(bodyParser.json());
 
 
+var express = require ('express');
+var home = require('./home');
+var mysql =require('mysql');
+var session = require ('express-session');
+var router = express.Router();
+var bodyParser = require('body-parser');
+var db = require.main.require ('./models/db_controller');
+var  sweetalert = require('sweetalert2');
+const { check, validationResult } = require('express-validator');
+
+
+
+
+router.get('/', function(req ,res){
+
+    res.render('login.ejs');
+});
+
+var con = mysql.createConnection({
+
+    host: 'mysqlnode.mysql.database.azure.com',
+    user: 'adminlogin@mysqlnode',
+    password: 'Ann280902',
+    database: ' ',
+    port: 3306, // Default MySQL port
+    ssl: {
+      rejectUnauthorized: true
+    }
+});
+
+
+
+
+
+router.use(session({
+
+    secret: 'secret',
+    resave : true ,
+    saveUninitialized : true 
+
+}));
+
+
+router.use(bodyParser.urlencoded({extended : true}));
+router.use(bodyParser.json());
+
+
 router.post('/',[
     check('username').notEmpty().withMessage("Username is reequired"),
     check('password').notEmpty().withMessage("Password is reequired")
@@ -84,4 +131,5 @@ router.post('/',[
 
 });
 
+module.exports = router;
 module.exports = router;
