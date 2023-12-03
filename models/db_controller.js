@@ -1,6 +1,8 @@
-var mysql = require("mysql");
+//var mysql1 = require("mysql3");
+const mysql = require('mysql2');
 var express = require("express");
 var router = express.Router();
+const fs = require('fs');
 
 const con = mysql.createConnection({
   host: 'mysqlnode.mysql.database.azure.com',
@@ -8,9 +10,12 @@ const con = mysql.createConnection({
   password: 'Ann280902',
   database: 'hospital_management',
   port: 3306, // Default MySQL port
-  ssl: true,
-  insecureAuth: true, // Enable SSL for secure connection (Azure MySQL requires SSL)
+  ssl: {
+    rejectUnauthorized: true
+  }
+  
 });
+
 
 con.connect(function (err) {
   if (err) {
