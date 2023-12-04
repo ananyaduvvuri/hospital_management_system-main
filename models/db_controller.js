@@ -8,7 +8,7 @@ const con = mysql.createConnection({
   host: 'mysqlnode.mysql.database.azure.com',
   user: 'adminlogin@mysqlnode',
   password: 'Ann280902',
-  database: ' ',
+  database: 'hospital_management',
   port: 3306, // Default MySQL port
   ssl: {
     rejectUnauthorized: true

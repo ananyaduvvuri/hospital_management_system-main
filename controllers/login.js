@@ -18,14 +18,11 @@ router.get('/', function(req ,res){
 
 var con = mysql.createConnection({
 
-    host: 'mysqlnode.mysql.database.azure.com',
-    user: 'adminlogin@mysqlnode',
-    password: 'Ann280902',
-    database: 'hospital_management',
-    port: 3306, // Default MySQL port
-    ssl: {
-      rejectUnauthorized: true
-    }
+    host : 'dbsqlmy.mysql.database.azure.com',
+    user : 'adminlogin',
+    password : 'Ann280902',
+    database : 'hospital_management'
+    
 });
 
 
@@ -60,7 +57,7 @@ router.post('/',[
 
     if (username && password){
         con.query('select * from users where username = ? and password = ?' , [username, password], function(error , results , fields){
-            if (Array.isArray(results) && results.length > 0) {
+            if (results.length > 0){
                 
                 request.session.loggedin = true ; 
                 request.session.username = username;
